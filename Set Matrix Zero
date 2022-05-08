@@ -1,0 +1,39 @@
+
+
+void setZeroes(int** matrix, int matrixSize, int* matrixColSize)
+{
+    printf("%d %d",matrixSize,*matrixColSize);
+    int r[matrixSize],c[*matrixColSize];
+    for(int i = 0;i<matrixSize;i++)
+    {
+        for(int j = 0;j<*matrixColSize;j++)
+        {
+            if(matrix[i][j] == 0)
+            {
+                r[i] = 1;
+                c[j] = 1;
+            }
+        }
+    }
+    
+    for(int i = 0;i<matrixSize;i++)
+    {
+        if(r[i] == 1)
+        {
+            for(int j = 0;j<*matrixColSize;j++)
+            {
+                matrix[i][j] = 0;
+            }
+        }
+    }
+    for(int i = 0;i<*matrixColSize;i++)
+    {
+        if(c[i] == 1)
+        {
+            for(int j = 0;j<matrixSize;j++)
+            {
+                matrix[j][i] = 0;
+            }
+        }
+    }
+}
