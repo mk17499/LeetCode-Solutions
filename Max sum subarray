@@ -1,0 +1,39 @@
+
+int max(int a,int b)
+{
+    return a>=b ? a:b;
+}
+int maxSubArray(int* arr, int n){
+    int max_ = arr[0];
+        int ans[n];
+        ans[0] = arr[0];
+        int sum = arr[0];
+        for(int i = 1;i<n;i++)
+        {
+            if(arr[i] > sum)
+            {
+                sum = max(arr[i],sum + arr[i]);
+                if(sum > max_)
+                {
+                    max_ = sum;
+                    ans[i] = max_;
+                }
+            }
+            else
+            {
+                sum+=arr[i];
+                if(sum > max_)
+                {
+                    max_ = sum;
+                    ans[i] = max_;
+                }
+                else
+                {
+                    ans[i] = max_;
+                }
+            }
+            ans[i] = max_;
+        }
+        return ans[n-1];
+
+}
