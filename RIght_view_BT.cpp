@@ -20,8 +20,9 @@ void lot(TreeNode *root,vector<int> &v,int *height,int curr_height)
             v.push_back(root->val);
             (*height)++;
         }
-        lot(root->right,v,height,curr_height + 1);
-        lot(root->left,v,height,curr_height + 1);
+        lot(root->right,v,height,curr_height + 1); // (1)
+        lot(root->left,v,height,curr_height + 1); // (2)
+        // To get right_view, just switch (1) & (2)
     }
 }
 int countNodes(TreeNode *root)
