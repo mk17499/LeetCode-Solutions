@@ -22,3 +22,6 @@ public:
         return ans[prices.size()-1];
     }
 };
+// The idea is that we need to buy at the minimum price and sell at the maximum price. Also the time at which we need to buy should be less than the time we sell the stock.
+// This means, in the prefix array, store the min stock price and in the postfix array, store the max price.
+// Finally compare the difference, the max difference is the answer.
